@@ -4,7 +4,6 @@ from icalendar import Calendar, Event,Timezone
 from email.parser import BytesParser
 from email import policy
 import pandas as pd
-import numpy as np
 filepath = 'Your Potential Timetable.eml'
 import re
 import uuid
@@ -22,8 +21,13 @@ clear_p = re.compile('</*?td.*?>')
 for i in range(len(lst1)):
     lst1[i] = re.sub(clear_p,'',lst1[i])
 
-lst2 = np.array(lst1)
-lst2 = lst2.reshape((-1,9))
+# reshape the list to a 2d array
+lst2 = []
+for i in range(len(lst1)//9):
+    lst2.append([])
+    for j in range(9):
+        lst2[i].append(lst1[9*i+j])
+
 # sort all the codes in pandas dataframe
 df = pd.DataFrame(lst2)
 df.columns = ['status','class','section','subject','course','seats open','duration&locations','dates','campus']
