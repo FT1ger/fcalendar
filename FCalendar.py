@@ -3,7 +3,6 @@ import email
 from icalendar import Calendar, Event,Timezone
 from email.parser import BytesParser
 from email import policy
-import pandas as pd
 filepath = 'Your Potential Timetable.eml'
 import re
 import uuid
@@ -23,19 +22,17 @@ for i in range(len(lst1)):
 
 # reshape the list to a 2d array
 lst2 = []
-for i in range(len(lst1)//9):
+for i in range(9):
     lst2.append([])
-    for j in range(9):
-        lst2[i].append(lst1[9*i+j])
+    for j in range(len(lst1)//9):
+        lst2[i].append(lst1[9*j+i])
 
-# sort all the codes in pandas dataframe
-df = pd.DataFrame(lst2)
-df.columns = ['status','class','section','subject','course','seats open','duration&locations','dates','campus']
-time_loc = df["duration&locations"]
+# sort all the codes in new shape
+time_loc = lst2[6]
 for i in range(len(time_loc)):
     time_loc[i] = time_loc[i].split('<br />')
 
-dura = df['dates']
+dura = lst2[7]
 for i in range(len(dura)):
     dura[i] = dura[i].split('<br />')
 # start time & end time -> datetime.datetime
@@ -89,7 +86,7 @@ def create_event(cal,course:str,start_date,end_date,start_time,end_time,location
 
 with open('Your_timetable.ics','wb') as f:
     cal = Calendar()
-    for i in range(len(df['subject'])):
+    for i in range(len(lst2[3])):
         for j in range(len(dura[i])):
-            create_event(cal,df['subject'][i]+' '+df['course'][i],dura[i][j][0],dura[i][j][1],time_start[i][j],time_end[i][j],location[i][j],df['campus'][i])
+            create_event(cal,lst2[3][i]+' '+ lst2[4][i],dura[i][j][0],dura[i][j][1],time_start[i][j],time_end[i][j],location[i][j],lst2[8][i])
     f.write(cal.to_ical())

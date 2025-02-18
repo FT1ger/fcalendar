@@ -3,7 +3,6 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 
 ## Dependencies
 Make sure that you have installed those libraries:
-- pandas
 - icalendar
 
 ## How can I use FCalendar
@@ -35,6 +34,6 @@ Make sure that you have installed those libraries:
 - [x] Output the .ics file.
 - [ ] Pythonize
 - [x] Remove numpy
-- [ ] and pandas
+- [x] and pandas
 - [ ] Remove icalendar
 - [ ] UI
