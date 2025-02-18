@@ -20,20 +20,18 @@ Make sure that you have installed those libraries:
 
 (If you are using iOS, strongly advise you create a new calendar to manage all the events.)
 
-## Problem
+## Problems
 
-- Havn't be tested with android.
+- Haven't been tested with android.
 - Potential errors inside.
+
+(Please feed back any bug on github issue)
 
 ## Steps
 
 - [x] Import .eml file
-
 - [x] Read datas from email(.eml)
-
 - [x] Catch some specific words to get datas
-
 - [x] Put every data in right place with write form of .ics file
-
 - [x] Output the .ics file.
 
