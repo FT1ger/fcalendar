@@ -1,5 +1,5 @@
 # FCalendar
-FCalendar is a small tool which can read your schedule from email and generate an iCalandar (.ics) file, which can be imported to your Calendar app.
+FCalendar is a small tool for student in the University of Adelaide which can read your schedule from email and generate an iCalandar (.ics) file, which can be imported to your Calendar app.
 
 ## Dependencies
 Make sure that you have installed those libraries:
