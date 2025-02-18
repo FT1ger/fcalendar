@@ -34,4 +34,6 @@ Make sure that you have installed those libraries:
 - [x] Catch some specific words to get datas
 - [x] Put every data in right place with write form of .ics file
 - [x] Output the .ics file.
-
+- [] Remove numpy and pandas
+- [] Remove icalendar
+- [] UI
