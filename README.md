@@ -5,14 +5,25 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 
 1. Open your Timetable Planner.(https://access.adelaide.edu.au/sa/student/TimeTablePlanner.asp)
 2. Generate your Timetable.
-3. View it.
+3. Click "View".
 4. Click the "Email" button (at the left-top of this page).
 5. Send it to your email.
 6. Download the email file and place it in the same directory of `FCalendar.py`.(Its name should be "`Your Potential Timetable.eml`")
-7. Run FCalendar.py
+7. Run FCalendar.py (or FCalendar.ipynb in your jupyter notebook)
 8. Generate a file "`Your_timetable.ics`", send it to your phone or import it to your calendar app.
 
 (If you are using iOS, strongly advise you create a new calendar to manage all the events.)
+
+With android:
+
+(After generating the file "`You_timetable.ics`")
+
+(Using google calendar as an example)
+
+1. Open the website of Google calendar. https://calendar.google.com/calendar
+2. click "`setting`" - "`setting`"(at the right-top of this page)
+3. Find "`Import and Export`" at the left.
+4. Import "`You_timetable.ics`"
 
 ## Problems
 
