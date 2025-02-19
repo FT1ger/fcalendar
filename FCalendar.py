@@ -1,6 +1,5 @@
 import datetime
 import email
-from icalendar import Calendar, Event,Timezone
 from email.parser import BytesParser
 from email import policy
 filepath = 'Your Potential Timetable.eml'
@@ -69,24 +68,30 @@ for i in range(len(time_loc)):
         time_end[i].append(match.group(3).strip())
         location[i].append(match.group(4))
 
-# create event
-def create_event(cal,course:str,start_date,end_date,start_time,end_time,location,campus):
+# create event for one course
+def create_event(course:str,start_date,end_date,start_time,end_time,location,campus):
     day = start_date
+    course_events = ''
     while day <= end_date:
-        event = Event()
-        event.add("DTSTART", datetime.datetime.strptime((str(day.date())+' '+start_time),'%Y-%m-%d %I:%M%p'))
-        event.add("DTEND", datetime.datetime.strptime((str(day.date())+' '+end_time),'%Y-%m-%d %I:%M%p'))
-        event.add("CREATED", datetime.datetime.now())
-        event.add("UID", uuid.uuid4())
-        event.add("SUMMARY", course)
-        event.add("DESCRIPTION", campus)
-        event.add("LOCATION", location)
+        event = "\nBEGIN:VEVENT"
+        event += f"\nSUMMARY:{course}"
+        start = datetime.datetime.strptime((str(day.date())+' '+start_time),'%Y-%m-%d %I:%M%p')
+        event += f"\nDTSTART:{start.strftime('%Y%m%dT%H%M%S')}"
+        end = datetime.datetime.strptime((str(day.date())+' '+end_time),'%Y-%m-%d %I:%M%p')
+        event += f"\nDTEND:{end.strftime('%Y%m%dT%H%M%S')}"
+        event += f"\nUID:{uuid.uuid4()}"
+        event += f"\nCREATED:{datetime.datetime.now().strftime('%Y%m%dT%H%M%S')}"
+        event += f"\nDESCRIPTION:{campus}"
+        event += f"\nLOCATION:{location}"
         day += datetime.timedelta(days = 7)
-        cal.add_component(event)
+        event += "\nEND:VEVENT"
+        course_events += event
+    return course_events
 
-with open('Your_timetable.ics','wb') as f:
-    cal = Calendar()
+with open('Your_timetable.ics','w') as f:
+    cal = 'BEGIN:VCALENDAR'
     for i in range(len(lst2[3])):
         for j in range(len(dura[i])):
-            create_event(cal,lst2[3][i]+' '+ lst2[4][i],dura[i][j][0],dura[i][j][1],time_start[i][j],time_end[i][j],location[i][j],lst2[8][i])
-    f.write(cal.to_ical())
+            cal += create_event(lst2[3][i]+' '+ lst2[4][i],dura[i][j][0],dura[i][j][1],time_start[i][j],time_end[i][j],location[i][j],lst2[8][i])
+    cal += '\nEND:VCALENDAR'
+    f.write(cal)

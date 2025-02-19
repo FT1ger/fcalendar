@@ -1,10 +1,6 @@
 # FCalendar
 FCalendar is a small tool for student in the University of Adelaide which can read your schedule from email and generate an iCalandar (.ics) file, which can be imported to your Calendar app.
 
-## Dependencies
-Make sure that you have installed those libraries:
-- icalendar
-
 ## How can I use FCalendar
 
 1. Open your Timetable Planner.(https://access.adelaide.edu.au/sa/student/TimeTablePlanner.asp)
@@ -35,5 +31,5 @@ Make sure that you have installed those libraries:
 - [ ] Pythonize
 - [x] Remove numpy
 - [x] and pandas
-- [ ] Remove icalendar
+- [x] Remove icalendar
 - [ ] UI
