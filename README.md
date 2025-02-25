@@ -3,6 +3,8 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 
 ## How can I use FCalendar
 
+***First at all, download `Fcalendar.ipynb` or `FCalendar.py`***
+
 1. Open your Timetable Planner.(https://access.adelaide.edu.au/sa/student/TimeTablePlanner.asp)
 ![](https://github.com/FT1ger/fcalendar/blob/main/images/timetableplanner.png)
 2. Generate your Timetable.
