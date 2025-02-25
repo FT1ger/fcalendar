@@ -2,7 +2,7 @@ import datetime
 import email
 from email.parser import BytesParser
 from email import policy
-filepath = 'Your Potential Timetable.eml'
+filepath = 'Your Potential Timetable_2.eml'
 import re
 import uuid
 
@@ -26,14 +26,33 @@ for i in range(9):
     for j in range(len(lst1)//9):
         lst2[i].append(lst1[9*j+i])
 
-# sort all the codes in new shape
+# sort all the codes in list
+# lst = ['status','class','section','subject','course','seats open','duration&locations','dates','campus']
+# sometime one course only have one duration, to fix this, add another layer of structure
+# sometime eml has different form, try to fix it
+# still need more form from different email
 time_loc = lst2[6]
 for i in range(len(time_loc)):
-    time_loc[i] = time_loc[i].split('<br />')
-
+    if "<br />" in time_loc[i]:
+        time_loc[i] = time_loc[i].split('<br />')
+    elif "<br>" in time_loc[i]:
+        time_loc[i] = time_loc[i].split('<br>')
+    elif "<br/>" in time_loc[i]:
+        time_loc[i] = time_loc[i].split('<br/>')
+    else:
+        time_loc[i] = [time_loc[i]]
+    
 dura = lst2[7]
 for i in range(len(dura)):
-    dura[i] = dura[i].split('<br />')
+    if "<br />" in dura[i]:
+        dura[i] = dura[i].split('<br />')
+    elif "<br>" in dura[i]:
+        dura[i] = dura[i].split('<br>')
+    elif "<br/>" in dura[i]:
+        dura[i] = dura[i].split('<br/>')
+    else:
+        dura[i] = [dura[i]]
+
 # start time & end time -> datetime.datetime
 def duration(duradate:str):
     duradate = duradate.split(' - ')
