@@ -12,6 +12,9 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 4. Click the "Email" button (at the left-top of this page).
 ![](https://github.com/FT1ger/fcalendar/blob/main/images/mail.png)
 5. Send it to your email.
+
+- *It is recommended that you use your student email address（or gmail) to receive this email. If you're having problems with other email, please let me know on the git hub issue!*
+
 6. Download the email file and place it in the same directory of `FCalendar.py`.(Its name should be "`Your Potential Timetable.eml`")
 ![](https://github.com/FT1ger/fcalendar/blob/main/images/download.png)
 7. Run FCalendar.py (or FCalendar.ipynb in your jupyter notebook)
@@ -19,7 +22,6 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 
 (If you are using iOS, strongly advise you create a new calendar to manage all the events.)
 
-(Suggest to use school email(outlook) or gmail, if you find some bug when using other email, please report it on github issue)
 
 With android:
 
