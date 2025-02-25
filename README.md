@@ -19,7 +19,7 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 
 6. Download the email file and place it in the same directory of `FCalendar.py`.(Its name should be "`Your Potential Timetable.eml`")
 ![](https://github.com/FT1ger/fcalendar/blob/main/images/download.png)
-7. Run FCalendar.py (or FCalendar.ipynb in your jupyter notebook)
+7. Run `FCalendar.py` (or `FCalendar.ipynb` in your jupyter notebook)
 8. Generate a file "`Your_timetable.ics`", send it to your phone or import it to your calendar app.
 
 (If you are using iOS, strongly advise you create a new calendar to manage all the events.)
