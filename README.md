@@ -18,6 +18,7 @@ FCalendar is a small tool for student in the University of Adelaide which can re
 8. Generate a file "`Your_timetable.ics`", send it to your phone or import it to your calendar app.
 
 (If you are using iOS, strongly advise you create a new calendar to manage all the events.)
+
 (Suggest to use school email(outlook) or gmail, if you find some bug when using other email, please report it on github issue)
 
 With android:
